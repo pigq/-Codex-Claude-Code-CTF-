@@ -1,0 +1,16 @@
+name = "muggle-leads"
+main = "src/worker.js"
+compatibility_date = "2025-06-01"
+workers_dev = true
+
+routes = [
+  { pattern = "leads.3jiezhiwai.com", custom_domain = true }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "muggle-leads-db"
+database_id = "6c6fc7b5-6c65-4acf-b164-646b5b19dc7e"
+
+[vars]
+ALLOWED_ORIGINS = "*"

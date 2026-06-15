@@ -1,0 +1,43 @@
+[project]
+name = "codex-session-patcher"
+version = "1.4.5"
+description = "AI coding session cleaner with CTF/pentest prompt injection — supports Codex, Claude Code, OpenCode"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your@email.com"}
+]
+keywords = ["codex", "cli", "session", "patcher"]
+dependencies = []
+
+[project.scripts]
+codex-patcher = "codex_session_patcher.cli:main"
+codex-patcher-web = "web.backend.main:run_server"
+
+[tool.setuptools.packages.find]
+include = ["codex_patcher", "codex_session_patcher", "web"]
+
+[tool.setuptools.package-data]
+codex_session_patcher = ["ctf_config/prompts/*.md"]
+
+[project.optional-dependencies]
+web = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "pydantic>=2.0.0",
+    "websockets>=11.0",
+    "httpx>=0.24.0"
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0"
+]
+build = [
+    "pyinstaller>=6.0.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=codex_session_patcher --cov=codex_patcher"

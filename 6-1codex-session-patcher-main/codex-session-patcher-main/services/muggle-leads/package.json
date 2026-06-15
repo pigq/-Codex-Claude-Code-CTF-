@@ -1,0 +1,15 @@
+{
+  "name": "muggle-leads",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "d1:migrate": "wrangler d1 migrations apply muggle-leads-db --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}
